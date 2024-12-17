@@ -20,12 +20,12 @@ open_price = ws.Cells(2, 3).Value
         
         
 Dim close_price As Double
-Dim yearly_change As Double
+Dim quarterly_change As Double
 Dim percent_change As Double
 
         
 ws.Cells(1, 9).Value = "Ticker"
-ws.Cells(1, 10).Value = "Yearly Change"       
+ws.Cells(1, 10).Value = "Quarterly Change"       
 ws.Cells(1, 11).Value = "Percent Change"
 ws.Cells(1, 12).Value = "Total Stock Volume"
 
@@ -45,15 +45,15 @@ ws.Range("L" & summary_ticker_row).Value = tickervolume
 
 close_price = ws.Cells(i, 6).Value
                
-yearly_change = (close_price - open_price)
+quarterly_change = (close_price - open_price)
                             
-ws.Range("J" & summary_ticker_row).Value = yearly_change
+ws.Range("J" & summary_ticker_row).Value = quarterly_change
                
 If open_price = 0 Then
 percent_change = 0
                 
 Else
-percent_change = yearly_change / open_price
+percent_change = quarterly_change / open_price
                 
 End If
               
