@@ -17,8 +17,7 @@ summary_ticker_row = 2
         
 Dim open_price As Double
 open_price = ws.Cells(2, 3).Value
-        
-        
+                
 Dim close_price As Double
 Dim quarterly_change As Double
 Dim percent_change As Double
@@ -35,18 +34,12 @@ For i = 2 To lastrow
 
 If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
         
-tickername = ws.Cells(i, 1).Value
-
-tickervolume = tickervolume + ws.Cells(i, 7).Value
-              
+tickername = ws.Cells(i, 1).Value        
+tickervolume = tickervolume + ws.Cells(i, 7).Value              
 ws.Range("I" & summary_ticker_row).Value = tickername
-
 ws.Range("L" & summary_ticker_row).Value = tickervolume
-
-close_price = ws.Cells(i, 6).Value
-               
-quarterly_change = (close_price - open_price)
-                            
+close_price = ws.Cells(i, 6).Value              
+quarterly_change = (close_price - open_price)                           
 ws.Range("J" & summary_ticker_row).Value = quarterly_change
                
 If open_price = 0 Then
@@ -61,9 +54,7 @@ ws.Range("K" & summary_ticker_row).Value = percent_change
 ws.Range("K" & summary_ticker_row).NumberFormat = "0.00%"
    
 summary_ticker_row = summary_ticker_row + 1
-
 tickervolume = 0
-
 open_price = ws.Cells(i + 1, 3)
             
 Else
